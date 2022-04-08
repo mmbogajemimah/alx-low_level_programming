@@ -1,18 +1,15 @@
 #include <stdio.h>
 /**
- * main : Starting point
+ * main - entry point
  *
- * return: Always returns 0
+ * Return: return 0 if successful
  */
-
 int main(void)
 {
 	char i;
 
 	for (i = 'z'; i >= 'a'; i--)
-	{
 		putchar(i);
-	}
 	putchar('\n');
 	return (0);	
 }
