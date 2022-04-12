@@ -7,11 +7,11 @@
 void jack_bauer(void)
 {
 	int hour;
-	
+
 	for (hour = 0; hour < 24; hour++)
 	{
 		int minute;
-		
+
 		for (minute = 0; minute < 60; minute++)
 		{
 			_putchar((hour / 10) + '0');
