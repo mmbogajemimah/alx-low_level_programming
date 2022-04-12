@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 /**
  * main - Starting point
  *
@@ -6,6 +7,15 @@
  */
 int main(void)
 {
-	printf("_putchar\n");
+	int i = 0;
+
+	str = "_putchar";
+
+	while (str[i] != '\0')
+	{
+		_putchar(str[i]);
+		i++;
+	}
+	_putchar('\n');
 	return (0);
 }
