@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * print_alphabet - prints alphabets 
+ * print_alphabet - prints alphabets
  *
  * Description: prints each letter of the alphabet ending with a newline
  */
