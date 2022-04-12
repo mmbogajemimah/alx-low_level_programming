@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * main - Starting point
+ * print_alphabet - prints alphabets 
  *
- * Return: returns 0 Always
+ * Description: prints each letter of the alphabet ending with a newline
  */
 void print_alphabet(void)
 {
