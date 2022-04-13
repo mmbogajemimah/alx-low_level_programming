@@ -1,65 +1,56 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
 
 void putchar_many(int);
 
 /**
- * print_to_98 - prints all numbers from n to 98
- * @n: starting number
+ * print_times_table - prints the timetable of integer n
+ * @n: number to generate the times table
  */
-void print_to_98(int n)
+void print_times_table(int n)
 {
-	int i;
-
-	if (n < 98)
+	if (n >=  0 && n <= 15)
 	{
-		for (i = n; i <= 98; i++)
+		int a, b;
+
+		for (a = 0; a <= n; a++)
 		{
-			if (i < 0)
-				putchar_many(i);
-
-			else if (i < 10)
-				putchar('0' + abs(i));
-			else
+			for (b = 0; b <= n; b++)
 			{
-				putchar(i / 10 + '0');
-				putchar(i % 10 + '0');
-			}
+				if (b == 0)
+					putchar(b + '0');
+				else if ((a * b) < 10)
+				{
+					putchar(' ');
+					putchar(' ');
+					putchar(' ');
+					putchar((a * b) % 10 + '0');
+				}
 
-			if (i != 98)
-			{
-				putchar(',');
-				putchar(' ');
+				else if ((a * b) < 100)
+				{
+					putchar(' ');
+					putchar(' ');
+					putchar((a * b) / 10 + '0');
+					putchar((a * b) % 10 + '0');
+				}
+				else
+				{
+					putchar(' ');
+					putchar_many(a * b);
+				}
+
+				if (b != n)
+					putchar(',');
 			}
+			putchar('\n');
 		}
 	}
-
-	else
-	{
-		for (i = n; i >= 98; i--)
-		{
-			if (i < 100)
-			{
-				putchar(i / 10 + '0');
-				putchar(i % 10 + '0');
-			}
-			else
-				putchar_many(i);
-
-			if (i != 98)
-			{
-				putchar(',');
-				putchar(' ');
-			}
-		}
-	}
-	putchar('\n');
 }
 
 /**
- * putchar_many - uses putchar to print out more than 2 digits
- * @x: the value to be putchar-ed
+ * putchar_many - putchar a number with more than 2 digits
+ * @x: the number with more than 2 digits
  */
 void putchar_many(int x)
 {
