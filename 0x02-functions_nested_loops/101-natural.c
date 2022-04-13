@@ -1,6 +1,8 @@
 #include <stdio.h>
 /**
  * main - Starting point
+ *
+ * Return: 0 if successful
  */
 int main(void)
 {
@@ -15,4 +17,5 @@ int main(void)
         }
     }
     printf("%d\n", x);
+    return (0);
 }
