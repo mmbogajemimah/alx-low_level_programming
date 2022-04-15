@@ -1,35 +1,22 @@
-// Headers
-# include <cs50.h>
 #include <stdio.h>
-
-int main(void)
+#include "main.h"
+int main (int n)
 {
-    //Declaring Variables
-    int height;
-    int i;
-    int j;
-    int k;
-    //Prompting user for correct input
-    do
-    {
-        height = get_int("Height: ");
-    }
-    while (height < 1 || height > 8);
+	int i = 2;
+	n = 120;
 
-    // Loop that prints out the columns
-    for (i = 1; i < height + 1; i++)
-    {
-        // Loop that prints out the spaces on the rows
-        for (j = 0; j < height - i; j++)
-        {
-            printf(" ");
-        }
-        // Loop that prints out the # on the rows
-        for (k = 0; k < height - j; k++)
-        {
-            printf("#");
-        }
-        printf("\n");
-    }
-
+	while (n != 1)
+	{
+		if (n % i == 0)
+		{
+			while (n % i == 0)
+			{
+				printf("%d", i);
+				n = n / i;
+			}
+		}
+		i++;
+	}
+	printf("\n");
+	return (0);
 }
