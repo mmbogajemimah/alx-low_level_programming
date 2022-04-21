@@ -3,16 +3,26 @@
 #include <time.h>
 #include <stdio.h>
 /**
+ * random_password - Generates a random password
+ *
+ * Return: Returns a random password
+ */
+int random_password(void)
+{
+	int num;
+
+	srand(time(NULL));
+	num = rand();
+	return (num);
+}
+/**
  * main - starting point
  *
  * Return: Returns 0
  */
 int main(void)
 {
-	int num;
+	random_password();
 
-	srand(time(0));
-	num = rand();
-	printf("%i\n", num);
 	return (0);
 }
