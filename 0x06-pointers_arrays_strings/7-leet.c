@@ -1,25 +1,30 @@
 #include "main.h"
-
+#include <string.h>
 /**
- * leet - replaces specific characters with specific numbers
- * @c: string to do the transformation
- * Return: transformed string
+ * leet - A function that replaces characters
+ * @c: string replaced with characters
+ *
+ * Return: Returns Replaced string
  */
 char *leet(char *c)
 {
-	char l1[] = "AEOLT";
-	char l2[] = "aeolt";
-	char l3[] = "43017";
-	unsigned int i, j;
+	char s1[] = "aAeEoOtTlL";
+	char s2[] = "4433007711";
+	int i, j;
 
-	for (i = 0; i < strlen(c); i++)
+	for (i = 0; c[i] != '\0'; i++)
 	{
-		for (j = 0; j < 5; j++)
+		for (j = 0; s1[j] != '\0'; j++)
 		{
-			if ((c[i] == l1[j]) || (c[i] == l2[j]))
-				c[i] = l3[j];
+			if (c[i] == s1[j])
+			{
+				c[i] = s2[j];
+			}
+			else
+			{
+				c[i] = c[i];
+			}
 		}
 	}
-
 	return (c);
 }
