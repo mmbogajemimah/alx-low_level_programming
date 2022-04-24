@@ -9,33 +9,19 @@
  */
 char *leet(char *c)
 {
-	unsigned int i;
+	unsigned int i, j;
+	char s1[] = "AEOLT";
+	char s2[] = "aeolt";
+	char s3[] = "43071";
 
 	for (i = 0; i < strlen(c); i++)
 	{
-		if (c[i] == 'a' || c[i] == 'A')
+		for (j = 0; j < 5; j++)
 		{
-			c[i] = '4';
-		}
-		else if (c[i] == 'e' || c[i] == 'E')
-		{
-			c[i] = '3';
-		}
-		else if (c[i] == 'o' || c[i] == 'O')
-		{
-			c[i] = '0';
-		}
-		else if (c[i] == 't' || c[i] == 'T')
-		{
-			c[i] = '7';
-		}
-		else if (c[i] == 'l' || c[i] == 'L')
-		{
-			c[i] = '1';
-		}
-		else
-		{
-			c[i] = c[i];
+			if (c[i] == s1[j] || c[i] == s2[j])
+			{
+				c[i] = s3[j];
+			}
 		}
 	}
 	return (c);
