@@ -1,52 +1,22 @@
 #include "main.h"
 /**
- * print_number - function that prints an integer
- * @n: value to be printed
+ * print_number - prints an integer
+ * @n:.input integer parameter
+ *
+ *
  */
-
 void print_number(int n)
 {
-	int k, l;
+	unsigned int i = n;
 
-	if (n > -10 && n < 10)
-	{
-		if (n < 0)
-		{
-			_putchar('-');
-			_putchar(-n % 10 + '0');
-		}
-		else
-			_putchar(n % 10 + '0');
-	}
-
-	else
-	{
-		k = n / 10;
-
-		if (n < 0)
-			l = n % 10 * -1;
-		else
-			l = n % 10;
-
-		putchar_many(k);
-		_putchar(l + '0');
-	}
-}
-
-/**
- * putchar_many - function that prints using putchar
- * @n: value to be printed using putchar
- */
-void putchar_many(int n)
-{
 	if (n < 0)
 	{
-		_putchar('-');
-		n = -n;
+		_putchar(45);
+		i = -i;
 	}
-
-	if (n / 10)
-		putchar_many(n / 10);
-
-	_putchar(n % 10 + '0');
+	if (i / 10)
+	{
+		print_number(i / 10);
+	}
+	_putchar(i % 10 + '0');
 }
