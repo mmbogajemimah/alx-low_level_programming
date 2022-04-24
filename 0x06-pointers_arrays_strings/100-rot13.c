@@ -7,25 +7,27 @@
  *
  * Return: Returns transformed string
  */
+
 char *rot13(char *c)
 {
-	char s1[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char s2[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	int i, j;
+        int i, j;
+	char s1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char s2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	for (i = 0; c[i] != '\0'; i++)
+	i = 0;
+	while (c[i] != '\0')
 	{
-		for (j = 0; s1[j] != '\0'; j++)
+		j = 0;
+		while (s1[j] != '\0')
 		{
 			if (c[i] == s1[j])
 			{
 				c[i] = s2[j];
+				break;
 			}
-			else
-			{
-				c[i] = c[i];
-			}
+			j++;
 		}
+		i++;
 	}
 	return (c);
 }
