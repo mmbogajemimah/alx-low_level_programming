@@ -5,7 +5,6 @@
 int calculate_quarters(int cents);
 int calculate_dimes(int cents);
 int calculate_nickels(int cents);
-int calculate_pennies(int cents);
 int calculate_two(int cents);
 /**
  * main - starting point
@@ -23,6 +22,7 @@ int main(int argc, char *argv[])
 	int two;
 	int pennies;
 	int coins;
+	int pennies_counter;
 
 	if (argc == 1)
 	{
@@ -48,7 +48,16 @@ int main(int argc, char *argv[])
 	two = calculate_two(cents);
 	cents = cents - two * 2;
 
-	pennies = calculate_pennies(cents);
+	pennies_counter = 0;
+	do {
+		if (cents >= 1)
+		{
+			cents = cents - 1;
+			pennies_counter++;
+		}
+	} while (cents >= 1);
+
+	pennies = pennies_counter;
 	cents = cents - pennies * 1;
 
 	coins = quarters + dimes + nickels + two + pennies;
@@ -131,22 +140,4 @@ int calculate_two(int cents)
 	} while (cents >= 2);
 	return (two_counter);
 }
-/**
- * calculate_pennies - calculates the no of pennies
- * @cents: input
- *
- * Return: Number of pennies
- */
-int calculate_pennies(int cents)
-{
-	int pennies_counter = 0;
 
-	do {
-		if (cents >= 1)
-		{
-			cents = cents - 1;
-			pennies_counter++;
-		}
-	} while (cents >= 1);
-	return (pennies_counter);
-}
