@@ -1,54 +1,49 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
-
+#include <ctype.h>
 /**
- * main - prints the function.
- * @argc: counts the arguments of the function.
- * @argv: gives the value of the arguments passed to the function.
+ * main - main function
+ * @argc: argument counter
+ * @argv: argument vector
  *
- * Return: Return always success.
-**/
-
+ * Return: Returns 0 when program is successful
+ */
 int main(int argc, char *argv[])
 {
-int cents, coins = 0;
+	int change, cents;
 
-if (argc == 2)
-{
-cents = atoi(*(argv + 1));
-while (cents > 0)
-{
-if (cents % 25 < cents)
-{
-cents -= 25;
-coins++;
-}
-else if (cents % 10 < cents)
-{
-cents -= 10;
-coins++;
-}
-else if (cents % 5 < cents)
-{
-cents -= 5;
-coins++;
-}
-else if (cents % 2 < cents)
-{
-cents -= 2;
-coins++;			}
-else if (cents % 1 < cents)
-{
-cents -= 1;
-coins++;
-}
-}
-}
-else
-{
-printf("Error\n");
-return (1);
-}
-printf("%d\n", coins);
-return (0);
+	if ((argc - 1) != 1)
+		printf("Error\n");
+		return (1);
+	change = atoi(argv[1]);
+	if (change < 0)
+		printf("0\n");
+	while (change >= 25)
+	{
+		change = change - 25;
+		cents = cents + 1;
+	}
+	while (change >= 10)
+	{
+		change = change - 10;
+		cents = cents + 1;
+	}
+	while (change >= 5)
+	{
+		change = change - 5;
+		cents = cents + 1;
+	}
+	while (change >= 2)
+	{
+		change = change - 2;
+		cents = cents + 1;
+	}
+	while (change >= 1)
+	{
+		change = change - 1;
+		cents = cents + 1;
+	}
+	printf("%d\n", cents);
+	return (0);
 }
