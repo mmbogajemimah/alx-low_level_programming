@@ -13,9 +13,11 @@ int main(int argc, char *argv[])
 {
 	int change, cents;
 
-	if ((argc - 1) != 1)
+	if (argc == 1)
+	{
 		printf("Error\n");
 		return (1);
+	}
 	change = atoi(argv[1]);
 	if (change < 0)
 		printf("0\n");
