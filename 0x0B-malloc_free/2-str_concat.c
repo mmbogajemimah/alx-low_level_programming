@@ -1,52 +1,36 @@
-include <stdlib.h>
-#include <stdio.h>
-#include "holberton.h"
+#include "main.h"
 
 /**
- * _strlen - find length of a string
- * @s: string
- * Return: int
+ * str_concat - concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * Return: pointer to concatenated string
  */
-
-
-int _strlen(char *s)
-{
-int size = 0;
-for (; s[size] != '\0'; size++)
-;
-return (size);
-}
-
-/**
- * *str_concat - concatenates two strings
- * @s1: string 1
- * @s2: string 2
- * Return: pointer
- */
-
 char *str_concat(char *s1, char *s2)
 {
-int size1, size2, i;
-char *m;
+	unsigned int i;
+	char *s;
 
-if (s1 == NULL)
-	s1 = "\0";
-if (s2 == NULL)
-	s2 = "\0";
+	if (s1 == NULL)
+		s1 = "";
 
-size1 = _strlen(s1);
-size2 = _strlen(s2);
-m = malloc((size1 + size2) *sizeof(char) + 1);
-if (m == 0)
-	return (0);
+	if (s2 == NULL)
+		s2 = "";
 
-for (i = 0; i <= size1 + size2; i++)
-{
-	if (i < size1)
-		m[i] = s1[i];
-	else
-		m[i] = s2[i - size1];
-}
-m[i] = '\0';
-return (m);
+	s = (char *)malloc((strlen(s1) + strlen(s2) + 1) * sizeof(char));
+
+	if (s == NULL)
+		return (NULL);
+
+	for (i = 0; i < strlen(s1); i++)
+		s[i] = s1[i];
+
+	for (i = 0; i < strlen(s2); i++)
+		s[strlen(s1) + i] = s2[i];
+
+	s[strlen(s1) + strlen(s2) + 1] = '\0';
+
+	return (s);
+	free(s);
+
 }
