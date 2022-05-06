@@ -24,15 +24,21 @@ char *str_concat(char *s1, char *s2)
 		len = (strlen(s1) + strlen(s2) + 1);
 		str = (char *)malloc(sizeof(char) * len);
 
-		for (i = 0; s1[i] != '\0'; i++)
+		if (str == NULL)
 		{
-			str[i] = s1[i];
+			return (NULL);
 		}
-
-		for (j = 0; s2[j] != '\0'; j++)
+		else
 		{
-			str[i] = s2[j];
-			i++;
+			for (i = 0; s1[i] != '\0'; i++)
+			{
+				str[i] = s1[i];
+			}
+			for (j = 0; s2[j] != '\0'; j++)
+			{
+				str[i] = s2[j];
+				i++;
+			}
 		}
 		str[i] = '\0';
 	}
