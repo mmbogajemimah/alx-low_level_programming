@@ -10,7 +10,7 @@
  */
 int *array_range(int min, int max)
 {
-	int range, i;
+	int range, i, j;
 	int *numbers;
 
 	if (min > max)
@@ -25,9 +25,12 @@ int *array_range(int min, int max)
 		free(numbers);
 		return (NULL);
 	}
-	for (i = min; i <= max; i++)
+	i = min;
+	while (j < range)
 	{
-		numbers[i] = i;
+		numbers[j] = i;
+		i++;
+		j++;
 	}
 	return (numbers);
 	free(numbers);
