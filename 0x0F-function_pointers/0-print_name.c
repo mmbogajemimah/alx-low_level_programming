@@ -10,9 +10,9 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
-	if (name == NULL || f == NULL)
+	if (name == NULL || (*f) == NULL)
 	{
 		exit(98);
 	}
-	f(name);
+	(*f)(name);
 }
