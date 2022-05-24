@@ -14,7 +14,6 @@ size_t print_list(const list_t *h)
 	counter = 0;
 	if (h == NULL)
 	{
-		printf("The linked List is empty");
 		return (1);
 	}
 	ptr = h;
