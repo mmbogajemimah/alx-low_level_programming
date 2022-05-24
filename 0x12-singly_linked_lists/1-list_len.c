@@ -9,19 +9,13 @@
  */
 size_t list_len(const list_t *h)
 {
-	const list_t *ptr;
 	int counter;
 
 	counter = 0;
-	if (h == NULL)
-	{
-		return (1);
-	}
-	ptr = h;
-	while (ptr != NULL)
+	while (h != NULL)
 	{
 		counter++;
-		ptr = ptr->next;
+		h = h->next;
 	}
 	return (counter);
 }
